@@ -3,9 +3,9 @@ from words import words_list
 
 def collect_word():
     word = random.choice(words_list)
-    return words.upper()
+    return word.upper()
 
-def initial_game(): 
+def game_menu(): 
  """
  Choices for user to start, choose difficulty & and view the rules of the game
  """
@@ -24,7 +24,7 @@ print("Choose" + "3" + "to read game rules")
 # 3. get random word
 # 4. display 'hidden word' e.g _ _ _ _ _ _ 
 # 5. let user guess 
-# 6. validate tht e guess, MUST be a letter value
+# 6. validate tht e guess, M§AUST be a letter value
 # 7. check if guessed letter has already been guessed
 # 8. check secret word to see if letter appears 
 # 9a. if true then reveal letters in 'hidden word'
