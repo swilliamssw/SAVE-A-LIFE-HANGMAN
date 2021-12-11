@@ -3,10 +3,13 @@ from words import words_list
 
 # 1. Display menu
 
+
 def game_menu():
     """
     Choices for user to start, choose difficulty & and view the rules of the game
     """
+
+
 print("Choose 1 to play game")
 print("Choose 2 to choose game difficulty")
 print("Choose 3 to read game rules")
@@ -24,17 +27,22 @@ while not choices:
     elif options == "3":
         choices = True
 
-    else: print("Please choose 1, 2 or 3 to continue")
+    else:
+        print("Please choose 1, 2 or 3 to continue")
 
 # 2. handle choice
 
 # 3. get random word
+
+
 def collect_word(words_list):
     random_word = random.choice(words_list)
     while '_' in random_word or ' ' in random_word:
     return random_word.upper()
 
 # 4. display 'hidden word' e.g _ _ _ _ _ _
+
+
 def Start_game(collect_word):
     correct_word = " _ " * len(collect_word)
     guessed_letters = []
@@ -44,15 +52,17 @@ def Start_game(collect_word):
     print(correct_word)
     print("/n")
     while not guessed and live > 0:
-        guess = input ("Please guess a letter: ")
+        guess = input("Please guess a letter: ")
     if len(guess) == 1 and guess.isalpha():
-        
+        if (guess) in guessed_letters:
+            print("That letter has already been guessed, please try another", guess)
+        elif guess not in collect_word:
+            print(guess, "This word is not valid.")
     elif len(guess) == len(correct_word) and guess.alpha():
-
-    else: print("Sorry that is not a valid input, please guess a letter from A - Z")
-
-
         
+    else:
+        print("Sorry that is not a valid input, please guess a letter from A - Z")
+
 
 # 5. let user guess
 # 6. validate the guess, MUST be a letter value
