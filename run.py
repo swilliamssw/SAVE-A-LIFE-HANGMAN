@@ -38,7 +38,7 @@ while not choices:
 def collect_word(words_list):
     random_word = random.choice(words_list)
     while '_' in random_word or ' ' in random_word:
-    return random_word.upper()
+        return random_word.upper()
 
 # 4. display 'hidden word' e.g _ _ _ _ _ _
 
@@ -51,19 +51,40 @@ def Start_game(collect_word):
     print("Save a man's life by guessing the correct letters to complete the word!")
     print(correct_word)
     print("/n")
+   
     while not guessed and live > 0:
-        guess = input("Please guess a letter: ")
-    if len(guess) == 1 and guess.isalpha():
-        if (guess) in guessed_letters:
-            print("That letter has already been guessed, please try another", guess)
-        elif guess not in collect_word:
-            print(guess, "This word is not valid.")
-    elif len(guess) == len(correct_word) and guess.alpha():
+        player_guess = input("Please guess a letter: ")
+
+try: 
+    if len(player_guess) == 1 and player_guess.isalpha():
         
-    else:
-        print("Sorry that is not a valid input, please guess a letter from A - Z")
-
-
+        if (player_guess) in guessed_letters:
+            print("That letter has already been guessed, please try another", guess)
+        
+        elif player_guess not in collect_word:
+            print(player_guess, "is not a valid word.")
+            lives -= 1
+            guessed_letters.append(player_guess)
+        else:
+            print("Great guess!", player_guess, "is one of the letters")
+            guessed_letters.append(player_guess)
+            list_of_words = list(correct_word)
+            indices = [i for i, letter in enumerate(correct_word)
+            if letter == player_guess]
+        for index in indices:
+            word_temp_list[index] = player_guess
+            word_temp = "".join(word_temp_list)
+        if "_" not in word_temp:
+            guessed = True
+        
+    elif len(player_guess) == len(correct_word) and player_guess.alpha():
+   
+   else: 
+   Print("Sorry that is not a valid input, please guess a letter from A-Z ")
+except Error 
+    print("Please try again.")
+    continue
+print(lives)
 # 5. let user guess
 # 6. validate the guess, MUST be a letter value
 # 7. check if guessed letter has already been guessed
