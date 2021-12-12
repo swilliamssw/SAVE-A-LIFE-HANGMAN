@@ -5,10 +5,11 @@ from words import words_list
 
 
 def game_menu():
-    """
-    Choices for user to start, choose difficulty & and view the rules of the game
-    """
 
+    """
+    Choices for user to start, 
+    choose difficulty & view the rules of the game.
+    """
 
 print("Choose 1 to play game")
 print("Choose 2 to choose game difficulty")
@@ -46,45 +47,47 @@ def collect_word(words_list):
 def Start_game(collect_word):
     correct_word = " _ " * len(collect_word)
     guessed_letters = []
+    guessed_word = []
     lives = 7
     guessed = False
     print("Save a man's life by guessing the correct letters to complete the word!")
     print(correct_word)
     print("/n")
    
-    while not guessed and live > 0:
+    while not guessed and lives > 0:
         player_guess = input("Please guess a letter: ")
-
-try: 
-    if len(player_guess) == 1 and player_guess.isalpha():
-        
-        if (player_guess) in guessed_letters:
-            print("That letter has already been guessed, please try another", guess)
-        
-        elif player_guess not in collect_word:
-            print(player_guess, "is not a valid word.")
-            lives -= 1
-            guessed_letters.append(player_guess)
+        if len(player_guess) == 1 and player_guess.isalpha():
+            if (player_guess) in guessed_letters:
+                print("That letter has already been guessed, please try another", player_guess)
+            elif player_guess not in collect_word:
+                 print(player_guess, "is not a valid word.")
+                 lives -= 1
+                 guessed_letters.append(player_guess)
+            else:
+                print("Great guess!", player_guess, "is one of the letters")
+                guessed_letters.append(player_guess)
+                list_of_words = list(correct_word)
+                indices = [i for i, letter in enumerate(correct_word) if letter == player_guess]
+                for index in indices:
+                   word_temp_list[index] = player_guess
+                word_temp = "".join(word_temp_list)  
+            if "_" not in word_temp:
+                guessed = True    
+        elif len(player_guess) == len(correct_word) and player_guess.alpha():
+           if player_guess in guessed_word:
+              print("You already guessed", player_guess)
+           elif player_guess != correct_word:
+                print(player_guess, "Is not the word")
+                lives -= 1 
+                guessed_word.append(player_guess)
+           else: 
+                guessed = True 
+                completed_word = correct_word
         else:
-            print("Great guess!", player_guess, "is one of the letters")
-            guessed_letters.append(player_guess)
-            list_of_words = list(correct_word)
-            indices = [i for i, letter in enumerate(correct_word)
-            if letter == player_guess]
-        for index in indices:
-            word_temp_list[index] = player_guess
-            word_temp = "".join(word_temp_list)
-        if "_" not in word_temp:
-            guessed = True
-        
-    elif len(player_guess) == len(correct_word) and player_guess.alpha():
-   
-   else: 
-   Print("Sorry that is not a valid input, please guess a letter from A-Z ")
-except Error 
-    print("Please try again.")
-    continue
-print(lives)
+            Print("Sorry that is not a valid input, please guess a letter from A-Z ")
+        Print(display_hangman(lives))
+        print(completed_word)
+        print("\n")
 # 5. let user guess
 # 6. validate the guess, MUST be a letter value
 # 7. check if guessed letter has already been guessed
