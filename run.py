@@ -10,7 +10,7 @@ def game_menu():
     Choices for user to start, 
     choose difficulty & view the rules of the game.
     """
-    """
+    
 print("Choose 1 to play game")
 print("Choose 2 to choose game difficulty")
 print("Choose 3 to read game rules")
@@ -26,14 +26,14 @@ while not choices:
 
     elif options == "3":
         choices = True
+        rules_of_game()
 
     else:
         print("Please choose 1, 2 or 3 to continue")
-"""
+
 # 2. handle choice
 
 # 3. get random word
-
 
 def collect_word(words_list):
     random_word = random.choice(words_list)
@@ -42,17 +42,15 @@ def collect_word(words_list):
 
 # 4. display 'hidden word' e.g _ _ _ _ _ _
 
-
 def start_game(collect_word):
-    correct_word = " _ " * len(collect_word)
+    correct_word = "_" * len(collect_word)
     guessed_letters = []
     guessed_word = []
     lives = 7
     guessed = False
-    print("Save a man's life by guessing the correct letters to complete the word!")
+    print("Save a life today by guessing the correct letters to complete the word!")
     print(correct_word)
     
-
     while not guessed and lives > 0:
         player_guess = input("Please guess a letter: ")
 
@@ -198,53 +196,72 @@ def game_restart():
     start_game(collect_word)
     restart_game = False
 
-    while not restart_game:
-        reset = input ("Would You Like To Try An Save Another Life? (Y/N) ") == "Y":
-        collect_word = correct_word()
-        start_game(collect_word)
+    #while not restart_game:
+        #reset = input ("Would You Like To Try An Save Another Life? (Y/N) ") == "Y"
+        #collect_word = correct_word()
+        #start_game(collect_word)
         
-        try:
-            if reset == "Y"
-               restart_game = True
-
-
-
-
-
-
-
+        #try:
+            #if reset == "Y"
+              # restart_game = True
 
 
 def Game_title():
     print(
+        """   
+          ___   ___   _____     _     _    ___ ___ ___ 
+         / __| /_\ \ / / __|   /_\   | |  |_ _| __| __|
+         \__ \/ _ \ V /| _|   / _ \  | |__ | || _|| _| 
+         |___/_/ \_\_/ |___| /_/ \_\ |____|___|_| |___|
+             _  _   _   _  _  ___ __  __   _   _  _     
+            | || | /_\ | \| |/ __|  \/  | /_\ | \| |    
+            | __ |/ _ \| .` | (_ | |\/| |/ _ \| .` |    
+            |_||_/_/ \_\_|\_|\___|_|  |_/_/ \_\_|\_|                                                                                    
         """
-  ___   ___   _____     _     _    ___ ___ ___   _  _   _   _  _  ___ __  __   _   _  _ 
- / __| /_\ \ / / __|   /_\   | |  |_ _| __| __| | || | /_\ | \| |/ __|  \/  | /_\ | \| |
- \__ \/ _ \ V /| _|   / _ \  | |__ | || _|| _|  | __ |/ _ \| .` | (_ | |\/| |/ _ \| .` |
- |___/_/ \_\_/ |___| /_/ \_\ |____|___|_| |___| |_||_/_/ \_\_|\_|\___|_|  |_/_/ \_\_|\_|                                                                                 
+    )
+
+def rules_of_game():
+    print(
+        """
+        To be a hero today, your goal is simple.
+        Guess all letter that make up the word that will save a life.
+        If you guess wrong you will lose a life for every wrong guess.
+        Be very mindful of your guesses, as too much wrong guess will result in you reaching 0 lives.
+        Once you have reached a total of 0 lives you would have then missed your oppurtunity to save a life, resulting in the man being hanged.
+        GAME OVER!
+
+        But we have faith in you, that you will be amazing and save many lives today, Godspeed!
         """
     )
 
 def winner():
     print(
         """
- __   _____  _   _  __      _____ _  _   _ 
- \ \ / / _ \| | | | \ \    / /_ _| \| | | |
-  \ V / (_) | |_| |  \ \/\/ / | || .` | |_|
-   |_| \___/ \___/    \_/\_/ |___|_|\_| (_)                                        
+         __   _____  _   _  __      _____ _  _   _ 
+         \ \ / / _ \| | | | \ \    / /_ _| \| | | |
+          \ V / (_) | |_| |  \ \/\/ / | || .` | |_|
+           |_| \___/ \___/    \_/\_/ |___|_|\_| (_)                                        
         """
     )
 
 def game_over():
     print(
         """
-   ___   _   __  __ ___    _____   _____ ___   _ 
-  / __| /_\ |  \/  | __|  / _ \ \ / / __| _ \ | |
- | (_ |/ _ \| |\/| | _|  | (_) \ V /| _||   / |_|
-  \___/_/ \_\_|  |_|___|  \___/ \_/ |___|_|_\ (_)                                            
+           ___   _   __  __ ___    _____   _____ ___   _ 
+          / __| /_\ |  \/  | __|  / _ \ \ / / __| _ \ | |
+         | (_ |/ _ \| |\/| | _|  | (_) \ V /| _||   / |_|
+          \___/_/ \_\_|  |_|___|  \___/ \_/ |___|_|_\ (_)                                            
         """
     )
 
+def main():
+    Game_title()
+    print(hangman_display(0))
+
+    correct_word = collect_word(words_list)
+    start_game(correct_word)
+
+main()
 
 # 5. let user guess
 # 6. validate the guess, MUST be a letter value
