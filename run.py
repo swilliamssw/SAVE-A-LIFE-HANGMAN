@@ -43,7 +43,7 @@ def collect_word(words_list):
 # 4. display 'hidden word' e.g _ _ _ _ _ _
 
 
-def Start_game(collect_word):
+def start_game(collect_word):
     correct_word = " _ " * len(collect_word)
     guessed_letters = []
     guessed_word = []
@@ -93,7 +93,6 @@ def Start_game(collect_word):
                 guessed = True 
                 completed_word = correct_word
 
-
         else:
             Print("Sorry that is not a valid input, please guess a letter from A-Z ")
         Print(hangman_display(lives))
@@ -110,7 +109,7 @@ def Start_game(collect_word):
         print("The correct word was" + correct_word + "Maybe next time you will try harder :(")
 
 def hangman_display(lives):
-    stages = [  # final state: head, torso, both arms, and both legs
+    remaining_lives = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
                    |      |
@@ -118,7 +117,7 @@ def hangman_display(lives):
                    |     \\|/
                    |      |
                    |     / \\
-                   -
+                  =========
                 """,
                 # head, torso, both arms, and one leg
                 """
@@ -128,7 +127,7 @@ def hangman_display(lives):
                    |     \\|/
                    |      |
                    |     / 
-                   -
+                  =========
                 """,
                 # head, torso, and both arms
                 """
@@ -138,7 +137,7 @@ def hangman_display(lives):
                    |     \\|/
                    |      |
                    |      
-                   -
+                  =========
                 """,
                 # head, torso, and one arm
                 """
@@ -148,7 +147,7 @@ def hangman_display(lives):
                    |     \\|
                    |      |
                    |     
-                   -
+                  =========
                 """,
                 # head and torso
                 """
@@ -158,7 +157,7 @@ def hangman_display(lives):
                    |      |
                    |      |
                    |     
-                   -
+                  =========
                 """,
                 # head
                 """
@@ -168,9 +167,9 @@ def hangman_display(lives):
                    |    
                    |      
                    |     
-                   -
+                  =========
                 """,
-                # initial empty state
+                # Noose
                 """
                    --------
                    |      |
@@ -178,10 +177,74 @@ def hangman_display(lives):
                    |    
                    |      
                    |     
-                   -
+                  =========
+                """,
+                # initial empty state
+                """
+                   --------
+                   |      
+                   |      
+                   |    
+                   |      
+                   |     
+                  =========
                 """
     ]
-    return stages[lives]
+    return remaining_lives[lives]
+
+
+def game_restart():
+    correct_word = collect_word()
+    start_game(collect_word)
+    restart_game = False
+
+    while not restart_game:
+        reset = input ("Would You Like To Try An Save Another Life? (Y/N) ") == "Y":
+        collect_word = correct_word()
+        start_game(collect_word)
+        
+        try:
+            if reset == "Y"
+               restart_game = True
+
+
+
+
+
+
+
+
+
+def Game_title():
+    print(
+        """
+  ___   ___   _____     _     _    ___ ___ ___   _  _   _   _  _  ___ __  __   _   _  _ 
+ / __| /_\ \ / / __|   /_\   | |  |_ _| __| __| | || | /_\ | \| |/ __|  \/  | /_\ | \| |
+ \__ \/ _ \ V /| _|   / _ \  | |__ | || _|| _|  | __ |/ _ \| .` | (_ | |\/| |/ _ \| .` |
+ |___/_/ \_\_/ |___| /_/ \_\ |____|___|_| |___| |_||_/_/ \_\_|\_|\___|_|  |_/_/ \_\_|\_|                                                                                 
+        """
+    )
+
+def winner():
+    print(
+        """
+ __   _____  _   _  __      _____ _  _   _ 
+ \ \ / / _ \| | | | \ \    / /_ _| \| | | |
+  \ V / (_) | |_| |  \ \/\/ / | || .` | |_|
+   |_| \___/ \___/    \_/\_/ |___|_|\_| (_)                                        
+        """
+    )
+
+def game_over():
+    print(
+        """
+   ___   _   __  __ ___    _____   _____ ___   _ 
+  / __| /_\ |  \/  | __|  / _ \ \ / / __| _ \ | |
+ | (_ |/ _ \| |\/| | _|  | (_) \ V /| _||   / |_|
+  \___/_/ \_\_|  |_|___|  \___/ \_/ |___|_|_\ (_)                                            
+        """
+    )
+
 
 # 5. let user guess
 # 6. validate the guess, MUST be a letter value
