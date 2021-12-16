@@ -31,7 +31,7 @@ def game_menu():
 
 def collect_word():
     """
-    Picks a random a word from word,py to 
+    Picks a random a word from word,py to
     be used in the game for the play to guess.
     """
     random_word = random.choice(words_list)
@@ -72,9 +72,9 @@ def difficulty_selection():
 def start_game(random_word, tries):
     """
     Play game, which sets the initial amount of lives based on players choices.
-    when the game is over, based on the outcome of the 
-    players guesses graphics will be displayed. 
-    Also when game is over gives the player options to 
+    when the game is over, based on the outcome of the
+    players guesses graphics will be displayed.
+    Also when game is over gives the player options to
     play again or navigate back to the main menu.
     """
     hidden_word = "_" * len(random_word)
@@ -228,13 +228,13 @@ def hangman_display(lives):
                 """,
                 # Complete Hang stand
                 """
-                    --------
-                    |/
-                    |
-                    |
-                    |
-                    |
-                    |\\
+                   --------
+                   |/
+                   |
+                   |
+                   |
+                   |
+                   |\\
                   ==========
                 """,
                 # Horizontal bar
@@ -283,7 +283,7 @@ def hangman_display(lives):
 
 def game_restart(tries):
     """
-    Game restart, offers player to 
+    Game restart, offers player to
     play again or navigate back to the main menu.
     """
     restart_game = False
@@ -306,7 +306,7 @@ def game_restart(tries):
 
 def game_title():
     """
-    Games title, which displays at the start of the game. 
+    Games title, which displays at the start of the game.
     """
     print(
         """
