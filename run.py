@@ -12,7 +12,7 @@ def game_menu():
     print("Choose 3 to read game rules")
     choices = False
     while not choices:
-        options = input("/n ")
+        options = input("\n ")
         if options == "1":
             choices = True
 
@@ -29,81 +29,73 @@ def game_menu():
 # 2. handle choice
 
 # 3. get random word
-
-
 def collect_word():
     random_word = random.choice(words_list)
-    while "_" in random_word or " " in random_word:
-        return random_word.upper()
+    return random_word.upper()
 
 # 4. display 'hidden word' e.g _ _ _ _ _ _
-def start_game(random_word):
+def start_game(random_word, new_lives):
     hidden_word = "_" * len(random_word)
     game_over = False
     guessed_letters = []
-    guessed_word = []
     new_lives = 7
     lives = new_lives
-    print("Save a life today by guessing the correct letters to complete the word!")
-    print(hidden_word)
     print("\n")
-    while not game_over and new_lives > 0:
-        player_guess = input("Please guess a letter:\n").upper()
-
+    print(" LET'S SAVE A LIFE!\n")
+    print(f" Lives: {lives}\n")
+    print(f" Guess this word: " + " ".join(hidden_word) + "\n")
+   
+    while not game_over and lives > 0:
+        player_guess = input(" Guess a letter:\n").upper()
         if len(player_guess) == 1 and player_guess.isalpha():
+
             if player_guess in guessed_letters:
                 print(
-                    "That letter has already been guessed", player_guess, "please try another")
+                    " The", player_guess, "has already been used, try again.")
+
             elif player_guess not in random_word:
-                print(player_guess, "is not a valid word.")
+                print("\n")
+                print(player_guess, "is not correct.")
                 lives -= 1
                 guessed_letters.append(player_guess)
+
             else:
-                print("Great guess!", player_guess, "is one of the letters")
+                print("\n")
+                print(" Great guess!", player_guess, "is in the word.")
                 guessed_letters.append(player_guess)
                 list_of_words = list(hidden_word)
                 indices = [i for i, letter in enumerate(
                     random_word) if letter == player_guess]
                 for index in indices:
-                   list_of_words[index] = player_guess
+                    list_of_words[index] = player_guess
                 hidden_word = "".join(list_of_words)
                 if "_" not in hidden_word:
                     game_over = True
-        elif len(player_guess) == len(random_word) and player_guess.alpha():
-
-            if player_guess in guessed_word:
-                print("You already guessed", player_guess)
-            elif player_guess != hidden_word:
-                print(player_guess, "Is not the word")
-                lives -= 1
-                guessed_word.append(player_guess)
-            else:
-                game_over = True
-                hidden_word = random_word    
         else:
-            Print("Sorry that is not a valid input, please guess a letter from A-Z")
-        Print(hangman_display(lives))
-        print(hidden_word)
-        print("\n")
-        continue
-
+            print("\n")
+            print(" Sorry that is not a valid input, please guess a letter from A-Z")
+            print(hangman_display(lives))
+            print(hidden_word)
+            print("\n")
+            continue
         print(hangman_display(lives))
 
-    if lives > 0:
-        print(f"Lives:{lives}\n")
-        print("Letters guessed: " + ", ".join(sorted(player_guess)) + "\n")
-        print("Word to be guessed: " + " ".join(word_temp) + "\n")
+        if lives > 0:
+            print(f" Lives: {lives}\n")
+            print(" Guess this word: " + " ".join(hidden_word) + "\n")
+            print(" Letters guessed: " + ", ".join(sorted(player_guess)) + "\n")
 
     if game_over:
-        print("CONGRATULATIONS!")
-        print("YOU WIN!")
-        print("YOU SAVED A LIFE TODAY!")
+        print(" CONGRATULATIONS YOU WIN!")
+        print(" YOU SAVED A LIFE TODAY!")
+        winner()
 
     else:
-        print("OH NO!")
-        print("It's a very unfortante day, you was unable to save the man this time")
-        print("The correct word was" + hidde_word +
-              "Maybe next time you will try harder :(")
+        print(" OH NO!")
+        print(" It's a very unfortante day, you was unable to save the man this time")
+        print(" The correct word was " + random_word +
+              "\n Maybe next time you will try harder.")
+        hangman()
 
 def hangman_display(lives):
     remaining_lives = [  # final state: head, torso, both arms, and both legs
@@ -189,21 +181,21 @@ def hangman_display(lives):
     ]
     return remaining_lives[lives]
 
-
+"""
 def game_restart(new_lives):
     hidden_word = collect_word()
     start_game(collect_word)
     restart_game = False
 
-    # while not restart_game:
-        # reset = input ("Would You Like To Try An Save Another Life? (Y/N) ") == "Y"
-        # collect_word = correct_word()
-        # start_game(collect_word)
+    while not restart_game:
+    reset = input ("Would You Like To Try An Save Another Life? (Y/N) ") == "Y"
+     collect_word = correct_word()
+     start_game(collect_word)
 
-        # try:
-            # if reset == "Y"
-              # restart_game = True
-
+         try:
+             if reset == "Y"
+               restart_game = True
+"""
 
 def Game_title():
     print(
@@ -226,14 +218,14 @@ def rules_of_game():
         Guess all letter that make up the word that will save a life.
         If you guess wrong you will lose a life for every wrong guess.
         Be very mindful of your guesses, as too much wrong guess will result in you reaching 0 lives.
-        Once you have reached a total of 0 lives you would have then missed your oppurtunity to save a life, resulting in the man being hanged.
-        GAME OVER!
+        Once you have reached a total of 0 lives you would have then missed your oppurtunity to save a life, 
+        resulting in the man being hanged.
 
         But we have faith in you, that you will be amazing and save many lives today, Godspeed!
         """
     )
     back_to_menu = input("To Return To Main Menu, Press Enter.")
-
+    print("\n")
     main()
 
 def winner():
@@ -246,7 +238,7 @@ def winner():
         """
     )
 
-def game_over():
+def hangman():
     print(
         """
            ___   _   __  __ ___    _____   _____ ___   _
@@ -259,11 +251,13 @@ def game_over():
 def main():
     Game_title()
     print(hangman_display(0))
-
+    difficulty = game_menu()
+    new_lives = 7
     hangman_word = collect_word()
-    start_game(hangman_word)
+    start_game(hangman_word, new_lives)
 
-main()
+main() 
+
 
 # 5. let user guess
 # 6. validate the guess, MUST be a letter value
