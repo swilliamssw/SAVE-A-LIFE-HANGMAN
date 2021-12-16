@@ -345,7 +345,7 @@ def rules_of_game():
         and save many lives today. GODSPEED!
         """
     )
-    main = input("To Return To Main Menu, Press Enter.")
+    main_menu = input("To Return To Main Menu, Press Enter.\n")
     print("\n")
     main()
 
