@@ -37,8 +37,6 @@ def collect_word():
         return random_word.upper()
 
 # 4. display 'hidden word' e.g _ _ _ _ _ _
-
-
 def start_game(random_word):
     hidden_word = "_" * len(random_word)
     game_over = False
@@ -47,7 +45,7 @@ def start_game(random_word):
     new_lives = 7
     lives = new_lives
     print("Save a life today by guessing the correct letters to complete the word!")
-    print("The word to guess is: " + " ".join(hidden_word)
+    print(hidden_word)
     print("\n")
     while not game_over and new_lives > 0:
         player_guess = input("Please guess a letter:\n").upper()
@@ -55,7 +53,7 @@ def start_game(random_word):
         if len(player_guess) == 1 and player_guess.isalpha():
             if player_guess in guessed_letters:
                 print(
-                    "That letter has already been guessed", player_guess "please try another")
+                    "That letter has already been guessed", player_guess, "please try another")
             elif player_guess not in random_word:
                 print(player_guess, "is not a valid word.")
                 lives -= 1
