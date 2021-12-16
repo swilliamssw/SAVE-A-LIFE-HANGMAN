@@ -43,7 +43,7 @@ def start_game(random_word, new_lives):
     print("\n")
     print(" LET'S SAVE A LIFE!\n")
     print(f" Lives: {lives}\n")
-    print(f" Guess this word: " + " ".join(hidden_word) + "\n")
+    print(" Guess this word: " + " ".join(hidden_word) + "\n")
    
     while not game_over and lives > 0:
         player_guess = input(" Guess a letter:\n").upper()
@@ -56,12 +56,14 @@ def start_game(random_word, new_lives):
             elif player_guess not in random_word:
                 print("\n")
                 print(player_guess, "is not correct.")
-                lives -= 1
+                
                 guessed_letters.append(player_guess)
-
+                lives -= 1
+                
             else:
                 print("\n")
                 print(" Great guess!", player_guess, "is in the word.")
+
                 guessed_letters.append(player_guess)
                 list_of_words = list(hidden_word)
                 indices = [i for i, letter in enumerate(
@@ -72,12 +74,9 @@ def start_game(random_word, new_lives):
                 if "_" not in hidden_word:
                     game_over = True
         else:
-            print("\n")
-            print(" Sorry that is not a valid input, please guess a letter from A-Z")
-            print(hangman_display(lives))
-            print(hidden_word)
-            print("\n")
+            print("\n Sorry that is not a valid input, please guess a letter from A-Z\n")
             continue
+
         print(hangman_display(lives))
 
         if lives > 0:
@@ -181,22 +180,6 @@ def hangman_display(lives):
     ]
     return remaining_lives[lives]
 
-"""
-def game_restart(new_lives):
-    hidden_word = collect_word()
-    start_game(collect_word)
-    restart_game = False
-
-    while not restart_game:
-    reset = input ("Would You Like To Try An Save Another Life? (Y/N) ") == "Y"
-     collect_word = correct_word()
-     start_game(collect_word)
-
-         try:
-             if reset == "Y"
-               restart_game = True
-"""
-
 def Game_title():
     print(
         """
@@ -252,9 +235,13 @@ def main():
     Game_title()
     print(hangman_display(0))
     difficulty = game_menu()
+
     new_lives = 7
     hangman_word = collect_word()
     start_game(hangman_word, new_lives)
+    while input("Play Again?  (Y/N) ").upper() == "Y":
+        random_word = collect_word()
+        start_game(hangman_word, new_lives)
 
 main() 
 
