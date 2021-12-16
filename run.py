@@ -1,4 +1,5 @@
 import random
+from words import words_list
 
 
 def game_menu():
