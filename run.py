@@ -95,6 +95,7 @@ def start_game(random_word, new_lives):
         print(" The correct word was " + random_word +
               "\n Maybe next time you will try harder.")
         hangman()
+    game_restart(lives)
 
 def hangman_display(lives):
     remaining_lives = [  # final state: head, torso, both arms, and both legs
@@ -180,7 +181,27 @@ def hangman_display(lives):
     ]
     return remaining_lives[lives]
 
-def Game_title():
+def game_restart(lives):
+
+    restart_game = False
+
+    while not restart_game:
+        play_again = input("Play Again?  (Y/N) ").upper()
+        
+        if play_again == "Y":
+            restart_game = True
+            hangman_word = collect_word()
+            start_game(hangman_word, lives)
+        
+        elif play_again == "N":
+             restart_game = True
+             print("\n")
+             main()
+
+        else:
+            print(f" You must type Y or N. You typed {(play_again)}")
+
+def game_title():
     print(
         """
           ___   ___   _____     _     _    ___ ___ ___
@@ -232,17 +253,13 @@ def hangman():
     )
 
 def main():
-    Game_title()
+    game_title()
     print(hangman_display(0))
     difficulty = game_menu()
-
-    new_lives = 7
+    lives = 7
     hangman_word = collect_word()
-    start_game(hangman_word, new_lives)
-    while input("Play Again?  (Y/N) ").upper() == "Y":
-        random_word = collect_word()
-        start_game(hangman_word, new_lives)
-
+    start_game(hangman_word, lives)
+     
 main() 
 
 
