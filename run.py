@@ -1,7 +1,7 @@
 import random
 from words import words_list
 
-# 1. Display menu
+
 def game_menu():
     """
     Choices for user to start,
@@ -15,6 +15,8 @@ def game_menu():
         options = input("\n ")
         if options == "1":
             choices = True
+            difficulty = "normal"
+            return difficulty
 
         elif options == "2":
             choices = True
@@ -26,25 +28,64 @@ def game_menu():
         else:
             print("Please choose 1, 2 or 3 to continue")
 
-# 2. handle choice
 
-# 3. get random word
 def collect_word():
+    """
+    Picks a random a word from word,py to 
+    be used in the game for the play to guess.
+    """
     random_word = random.choice(words_list)
     return random_word.upper()
 
-# 4. display 'hidden word' e.g _ _ _ _ _ _
-def start_game(random_word, new_lives):
+
+def difficulty_selection():
+    """
+    Choices for the player to choose from Easy mode, Normal mode and Hard mode.
+    """
+    print("\n Choose Your Difficuly\n")
+    print(" Choose 1 for Easy mode")
+    print(" Choose 2 for Normal mode")
+    print(" Choose 3 for Hard mode")
+
+    difficulty = False
+    while not difficulty:
+        options = input("\n ").upper()
+        if options == "1":
+            difficulty = True
+            tries = 10
+            return tries
+
+        elif options == "2":
+            difficulty = True
+            tries = 7
+            return tries
+
+        elif options == "3":
+            difficulty = True
+            tries = 5
+            return tries
+
+        else:
+            print("\nPlease choose 1, 2 or 3 for your desired difficulty")
+
+
+def start_game(random_word, tries):
+    """
+    Play game, which sets the initial amount of lives based on players choices.
+    when the game is over, based on the outcome of the 
+    players guesses graphics will be displayed. 
+    Also when game is over gives the player options to 
+    play again or navigate back to the main menu.
+    """
     hidden_word = "_" * len(random_word)
     game_over = False
     guessed_letters = []
-    new_lives = 7
-    lives = new_lives
+    lives = tries
+
     print("\n")
     print(" LET'S SAVE A LIFE!\n")
     print(f" Lives: {lives}\n")
     print(" Guess this word: " + " ".join(hidden_word) + "\n")
-   
     while not game_over and lives > 0:
         player_guess = input(" Guess a letter:\n").upper()
         if len(player_guess) == 1 and player_guess.isalpha():
@@ -56,10 +97,9 @@ def start_game(random_word, new_lives):
             elif player_guess not in random_word:
                 print("\n")
                 print(player_guess, "is not correct.")
-                
                 guessed_letters.append(player_guess)
                 lives -= 1
-                
+
             else:
                 print("\n")
                 print(" Great guess!", player_guess, "is in the word.")
@@ -74,7 +114,8 @@ def start_game(random_word, new_lives):
                 if "_" not in hidden_word:
                     game_over = True
         else:
-            print("\n Sorry that is not a valid input, please guess a letter from A-Z\n")
+            print("\n Sorry that is not a valid input,"
+                  "please guess a letter from A-Z\n")
             continue
 
         print(hangman_display(lives))
@@ -82,7 +123,8 @@ def start_game(random_word, new_lives):
         if lives > 0:
             print(f" Lives: {lives}\n")
             print(" Guess this word: " + " ".join(hidden_word) + "\n")
-            print(" Letters guessed: " + ", ".join(sorted(player_guess)) + "\n")
+            print(" Letters guessed: " + ", ".join(sorted(player_guess)))
+            print("\n")
 
     if game_over:
         print(" CONGRATULATIONS YOU WIN!")
@@ -91,22 +133,28 @@ def start_game(random_word, new_lives):
 
     else:
         print(" OH NO!")
-        print(" It's a very unfortante day, you was unable to save the man this time")
+        print(" It's a very unfortante day,"
+              "you was unable to save the man this time")
         print(" The correct word was " + random_word +
               "\n Maybe next time you will try harder.")
         hangman()
-    game_restart(lives)
+
+    game_restart(tries)
+
 
 def hangman_display(lives):
+    """
+    Games hangman graphics which displays based on lives that are left.
+    """
     remaining_lives = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
-                   |      |
+                   |/     |
                    |      O
                    |     \\|/
                    |      |
-                   |     / \\
-                  =========
+                   |\\    / \\
+                  ==========
                 """,
                 # head, torso, both arms, and one leg
                 """
@@ -115,8 +163,8 @@ def hangman_display(lives):
                    |      O
                    |     \\|/
                    |      |
-                   |     /
-                  =========
+                   |\\    /
+                  ==========
                 """,
                 # head, torso, and both arms
                 """
@@ -125,83 +173,141 @@ def hangman_display(lives):
                    |      O
                    |     \\|/
                    |      |
-                   |
-                  =========
+                   |\\
+                  ==========
                 """,
                 # head, torso, and one arm
                 """
                    --------
-                   |      |
+                   |/     |
                    |      O
                    |     \\|
                    |      |
-                   |
-                  =========
+                   |\\
+                  ==========
                 """,
-                # head and torso
+                # torso
                 """
                    --------
-                   |      |
+                   |/     |
                    |      O
                    |      |
                    |      |
-                   |
-                  =========
+                   |\\
+                  ==========
                 """,
-                # head
+                # Noose, head & torso
                 """
                    --------
+                   |/     |
+                   |      O
                    |      |
+                   |
+                   |\\
+                  ==========
+                """,
+                # Noose & Head
+                """
+                   --------
+                   |/     |
                    |      O
                    |
                    |
-                   |
-                  =========
+                   |\\
+                  ==========
                 """,
                 # Noose
                 """
                    --------
-                   |      |
+                   |/     |
                    |
                    |
                    |
-                   |
-                  =========
+                   |\\
+                  ==========
+                """,
+                # Complete Hang stand
+                """
+                    --------
+                    |/
+                    |
+                    |
+                    |
+                    |
+                    |\\
+                  ==========
+                """,
+                # Horizontal bar
+                """
+                    --------
+                    |/
+                    |
+                    |
+                    |
+                    |
+                    |
+                  ==========
+                """,
+                # Support bar for horizontal bar
+                """
+                    |/
+                    |
+                    |
+                    |
+                    |
+                    |
+                   ==========
+                """,
+                # Vertical stand
+                """
+                    |
+                    |
+                    |
+                    |
+                    |
+                   ==========
                 """,
                 # initial empty state
                 """
-                   --------
-                   |
-                   |
-                   |
-                   |
-                   |
-                  =========
+
+
+
+
+
+
+
                 """
     ]
     return remaining_lives[lives]
 
-def game_restart(lives):
 
+def game_restart(tries):
+    """
+    Game restart, offers player to 
+    play again or navigate back to the main menu.
+    """
     restart_game = False
 
     while not restart_game:
         play_again = input("Play Again?  (Y/N) ").upper()
-        
+
         if play_again == "Y":
             restart_game = True
             hangman_word = collect_word()
-            start_game(hangman_word, lives)
-        
+            start_game(hangman_word, tries)
+
         elif play_again == "N":
-             restart_game = True
-             print("\n")
-             main()
+            restart_game = True
+            main()
 
         else:
             print(f" You must type Y or N. You typed {(play_again)}")
 
+
 def game_title():
+    """
+    Games title, which displays at the start of the game. 
+    """
     print(
         """
           ___   ___   _____     _     _    ___ ___ ___
@@ -215,24 +321,39 @@ def game_title():
         """
     )
 
+
 def rules_of_game():
+    """
+    Games rules, which outlines all the basics on how to play the game.
+    """
     print(
         """
         To be a hero today, your goal is simple.
+
         Guess all letter that make up the word that will save a life.
+
         If you guess wrong you will lose a life for every wrong guess.
-        Be very mindful of your guesses, as too much wrong guess will result in you reaching 0 lives.
-        Once you have reached a total of 0 lives you would have then missed your oppurtunity to save a life, 
+
+        Be very mindful of your guesses, as too much wrong guesses
+        will result in you reaching 0 lives.
+
+        Once you have reached a total of 0 lives, you would have
+        then missed your oppurtunity to save a life,
         resulting in the man being hanged.
 
-        But we have faith in you, that you will be amazing and save many lives today, Godspeed!
+        But we have faith that you will be amazing
+        and save many lives today. GODSPEED!
         """
     )
-    back_to_menu = input("To Return To Main Menu, Press Enter.")
+    main = input("To Return To Main Menu, Press Enter.")
     print("\n")
     main()
 
+
 def winner():
+    """
+    Displays You Win! Graphic.
+    """
     print(
         """
          __   _____  _   _  __      _____ _  _   _
@@ -242,7 +363,11 @@ def winner():
         """
     )
 
+
 def hangman():
+    """
+    Displays Game Over! Graphics.
+    """
     print(
         """
            ___   _   __  __ ___    _____   _____ ___   _
@@ -252,24 +377,23 @@ def hangman():
         """
     )
 
+
 def main():
+    """
+    Runs the game.
+    """
     game_title()
     print(hangman_display(0))
     difficulty = game_menu()
-    lives = 7
+
+    if difficulty == "normal":
+        tries = 7
+
+    else:
+        tries = difficulty_selection()
+
     hangman_word = collect_word()
-    start_game(hangman_word, lives)
-     
-main() 
+    start_game(hangman_word, tries)
 
 
-# 5. let user guess
-# 6. validate the guess, MUST be a letter value
-# 7. check if guessed letter has already been guessed
-# 8. check secret word to see if letter appears
-# 9a. if true then reveal letters in 'hidden word'
-# 9b. else lose a life and hang the man
-# 10a. check if the word has been guessed fully
-# 10b. if true win, else lose if no lives are left
-# 11. keep guessing and repeat until 10a
-# 12. finish game allow the player to restart the game
+main()
