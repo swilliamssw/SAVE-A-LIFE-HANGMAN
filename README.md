@@ -6,6 +6,12 @@ The game allows new and seniors to the coding space to enjoy the fun side of cod
  
 ![Responsive Mockup](/assets/images/responsive-design.png)
  
+## Logic Flow Chart
+__LOGIC FLOW CHART__
+-
+
+
+![Flow Chart](/assets/images/)
 ## Features<hr>
  
 ### Existing Features
@@ -36,54 +42,86 @@ The game allows new and seniors to the coding space to enjoy the fun side of cod
 
  ![Game Rules](/assets/images/game-rules.png)
  
-- __Answer Section__
- - The answer section displays four labeled tabs which have each possible answers to the questions presented above it.
- - The tabs display A-D labels on the left side to indicate the answer for the player.
- - Over in the middle of the tabs is the actual answers for the player to choose from.
- - The tabs have animation on them which allow them to glow and raise to indicate the answer that the player is planning on picking before they click on it, which provides more indication to the player of the answer they are picking.
+__GAME DISPLAY__
+ - Within the game the games display, the player is presented with the hangman graphics which changes in accordance of the player guessing incorrect answers. 
+ - The state is also dependeant on the difficulty the player has chosen also. 
+ - Below this the lives counter is presented which indicates to the player how many lives they have started with and how much they have left.
+ - Below this the player is presented with the hidden word which is revealed letter by letter based on the what the player has answered correctly. 
+ - Below the hidden word, the letters guessed section is displayed which indicates to the player what letters they have used to guess already. 
+ - Lastly there is a section for the player to present their guessed letter.   
+
+ ![Game Display](/assets/images/display.png)
+ ![Game Display](/assets/images/correct-answer.png)
  
- ![Answers Section](/assets/images/answers.png)
+__CORRECT ANSWER__
+ - On a successful correct guess given by the player the following message is presented, "Great guess! _ is the in the word.". 
+ - This indicates to the player they have guessed correctly one of the letters correctly. 
+ - In the example below you can see that the player has guessed "A", now if a word does contain one or more this is automatically populted for the player, allowing them to complete the word and gain more clues to what the word may be.
+
+![Correct Answer](/assets/images/correct-answer.png)
  
-__Correct Answer__
- - The game gives indication by showing a pop up which says "Good Job" to indicate to the player that they have successfully answered the question correctly.
- - The pop up is timed and only lasts a few seconds before disappearing and revealing the next question.
+__INCORRECT ANSWER__
+- When a player make a incorrect guess, the following message is displayed to notify them of their incorrect guess, "_ is not correct.
+- This then results in the player losing a life and the word being add to the guessed list.
  
-![Footer](/assets/images/correct-answer.png)
+![Incorrect Answer](/assets/images/game-easy-mode.png)
  
-__Incorrect Answer__
-- The game gives indication by showing a pop up which says "SORRY NOT RIGHT! THE CORRECT ANSWER IS" to indicate to the player that they have successfully answered the question correctly.
-- This also indicates to the player what the correct answers for that specific question that had answered.
-- The pop up is also timed and disappears after a few seconds and then displays the following question.
- 
-![Footer](/assets/images/incorrect-answer.png)
- 
-__End Game Page__
-- The game gives indication by showing a pop up which says "SORRY NOT RIGHT! THE CORRECT ANSWER IS" to indicate to the player that they have successfully answered the question correctly.
-- This also indicates to the player what the correct answers for that specific question that had answered.
-- The pop up is also timed and disappears after a few seconds and then displays the following question.
- 
-![Footer](/assets/images/endGame-page.png)
+__GAME OVER__
+- Once the player has ran out of lives the player will be presented with a Game OVER graphic which will have the following message above, "OH NO! It's a very unfortante day, you was unable to save the man this time. The correct word was ______. "Better luck next time.". 
+
+![Game Over](/assets/images/game-over.png)
+
+__YOU WIN__
+- If the player were to successfully guess the word correctly before running out of lives, the player would be presented with a You Win! Graphic, which will indicate to the player that they have successfully aguessed the word and won the game. 
+- The follwoing message would be displayed to the player, "CONGRATULATIONS YOU WIN! YOU SAVED A LIFE TODAY!".
+
+![You Win](/assets/images/you-win.png)
+
+__PLAY AGAIN__
+- Once the player has either recieved either the game over or you win message the player will be presented with a play again option. 
+- This play again  option would be presented below the graphics and will give the player to type "Y" for play again with the previous amount of lives or "N" to be navigated back to the main menu.
+
+![Play Again](/assets/images/play-again.png)
+![Play Again-No](/assets/images/play-again-no.png)
+
+__INVALID INPUT__
+- If the player were to input a value other that a-z the player would be presented with a message indicating them to guess useing any letter form a-z. 
+- The message would be, "Sorry that is not a valid inout, please guess a letter from A-Z".
+- This would also be the case, the player is instantly allowed to try again using the valid input suggested.
+
+![Invalid Input](/assets/images/invalid-input.png)
+![Invalid Input](/assets/images/invalid-input-number.png)
  
 ### Features Left to Implement
-- Features i would like to implement later on would be to show all the  <br>
-This  will require them to log their name once finished the game and this will store both their score and name in a separate page which allows them to look back at,, at a later date to bring more of a competitive feel to the game.
+- Features that would be implemented at a later date, would be a player name tracking and score keeping system.
+- This would allow the players to become more competitive and add more of a challenge for the game itself. 
+- Other features include colours for the texts to give it more of a assteticly pleaseing look.
+
  
 ## Testing<hr>
   - I tested this page works on different browsers: Chrome, Firefox, Safari.
-  - I confirmed that this project is responsive, looks good and functions on all standard screen sizing, using devtools device toolbar.
-  - I confirmed that the navigation, header, Home, About Us, Explore, Sign up form & footer text are all readable and easy to understand.
-  - I have confirmed that the form works: requires entries in every field, will only accept an email in the email field and the submit and cancel button works.
- 
-### Validator Testing
-- PEP8  
- - No errors were returned when passing through the official W3C validator.
-[PEP8](http://pep8online.com/)
- 
- ![](/assets/images/pep8-validation.png)
+  -
+
+
 
 
 ## Unfixed Bugs
+-
+
+
+
+
+
+![Error](/assets/images/error-found.png)
+
+### Validator Testing
+- PEP8  
+ - No errors were returned when passing through the official W3C validator.
+
+[PEP8](http://pep8online.com/)
  
+ ![PEP8 Validation](/assets/images/pep8-validation.png)
+
 ## Deployment
 - The site was deployed to Heroku, utilising the Code institute mock terminal.
   The steps to deploy are as follows:
@@ -98,6 +136,7 @@ This  will require them to log their name once finished the game and this will s
   - After waiting for app to be built a link will be provided by Heroku to access the app. 
 
 The live link from Heroku can be found here - https://save-a-life-hangman.herokuapp.com/
+
  
 ## Credits / References<hr>
  
