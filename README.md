@@ -8,10 +8,11 @@ The game allows new and seniors to the coding space to enjoy the fun side of cod
  
 ## Logic Flow Chart
 __LOGIC FLOW CHART__
--
+- Below shows the basic logic structure for SAVE A LIFE HANGMAN. 
+- In order to batter visualise and plan the games cycle, this flow chart was disigned to give a logical point of view of the games functionality. 
+- You are able to see from start of the game to each options available for the player to pick right through the game being played and ending on either or ither route whether the player wins the game or loses. 
 
-
-![Flow Chart](/assets/images/)
+![Flow Chart](/assets/images/logic-flow-chart.png)
 ## Features<hr>
  
 ### Existing Features
@@ -99,20 +100,41 @@ __INVALID INPUT__
 
  
 ## Testing<hr>
-  - I tested this page works on different browsers: Chrome, Firefox, Safari.
-  -
+No automated testing has been used for this project, all testing has been conducted manully, with numerous users to validate any findings further. 
+
+  TEST 1🧪 : Loading up game with option 1.
+  This was done by simply choosing option 1 and going through the default playing settings, to see if anything may arrise.
+
+  -RESULTS🏆 : The player is able to play using the default settings, all choices from picking a guess to putting in a invalid input to getting a correct and incorrect answer right through to the player winning or losing were bringing back the correct responses. 
+
+  -VERDICT ✅ : The initial gameplay for the option 1 default setting is a pass and completed with no occuring bugs. 
+
+  <hr>
+
+  TEST 2🧪 : Difficulty selection with option 2.
+  This was conducted by choosing each difficulty and going through the game, from easy, normal, hard and expert. 
+
+  -RESULTS🏆 : The player is able to choose from the four options of difficulties and play with the game with the given lives. Easy mode had given the correct number of lives 10, Normal mode had given the correct number of lives 7, Hard mode had given the correct number of lives 5 and lastly Expert mode had given the correct number of lives 3.
+
+  With saying this, hangman graphics were also monitored and this also where changing in accordance to the lives amount. 
+
+  -VERDICT✅ : This test has passed successfully with no bugs being presented. 
+ 
+  <hr>
+
+  TEST 3🧪 : Game Rules option 3.
+  This was conducted by choosing by choosing the option 3 to display the games rules, and trying to exit the rules page with the advised instructions, which is the press enter.
+
+  -RESULTS🏆 : The player is able to choose option 3 and display the games rules, which displayed correctly, but upon trying to exit this area, pressing enter had displayed the message shown below. This was then looked into further.
 
 
+  -VERDICT✅ : This test has failed due to the bug that was found when trying to exit the results page. This however was recterfied and solved by placing the correct variable name in, which was tries. After changing this, the game was then tested again and was taking the player back to the game menu as intended.
+
+![Error](/assets/images/error-found.png)
 
 
 ## Unfixed Bugs
--
-
-
-
-
-
-![Error](/assets/images/error-found.png)
+- There are currently no unfixed bugs, on this game.
 
 ### Validator Testing
 - PEP8  
