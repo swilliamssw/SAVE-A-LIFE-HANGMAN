@@ -114,8 +114,8 @@ def start_game(random_word, tries):
                 if "_" not in hidden_word:
                     game_over = True
         else:
-            print("\n Sorry that is not a valid input,"
-                  "please guess a letter from A-Z\n")
+            print("\n Sorry that is not a valid input, "
+                  "please guess a letter from A-Z.3\n")
             continue
 
         print(hangman_display(lives))
@@ -127,15 +127,15 @@ def start_game(random_word, tries):
             print("\n")
 
     if game_over:
-        print(" CONGRATULATIONS YOU WIN!")
-        print(" YOU SAVED A LIFE TODAY!")
+        print("       CONGRATULATIONS YOU WIN!")
+        print("       YOU SAVED A LIFE TODAY!")
         winner()
 
     else:
-        print(" OH NO!")
-        print(" It's a very unfortante day,"
+        print("                     OH NO!")
+        print("It's a very unfortante day,"
               "you was unable to save the man this time")
-        print(" The correct word was " + random_word +
+        print("The correct word was " + random_word + "\n"
               "\n Maybe next time you will try harder.")
         hangman()
 
