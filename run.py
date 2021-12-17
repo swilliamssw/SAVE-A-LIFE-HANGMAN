@@ -8,7 +8,7 @@ def game_menu():
     choose difficulty & view the rules of the game.
     """
     print("Choose 1 to play game")
-    print("Choose 2 to choose game difficulty")
+    print("Choose 2 to choose difficulty")
     print("Choose 3 to read game rules")
     choices = False
     while not choices:
@@ -79,9 +79,10 @@ def start_game(random_word, tries):
     """
     Play game, which sets the initial amount of lives based on players choices.
     when the game is over, based on the outcome of the
-    players guesses graphics will be displayed.
+    Players guess graphics will be displayed.
     Also when game is over gives the player options to
     play again or navigate back to the main menu.
+
     """
     hidden_word = "_" * len(random_word)
     game_over = False
@@ -140,9 +141,9 @@ def start_game(random_word, tries):
     else:
         print("OH NO!\n")
         print("It's a very unfortante day,"
-              " åyou was unable to save the man this time.")
-        print("The correct word was " + random_word + "\n"
-              "Maybe next time you will try harder.")
+              " you was unable to save the man this time.")
+        print("The correct word was " + random_word + ".\n"
+              "Better luck next time.")
         hangman()
 
     game_restart(tries)
@@ -307,7 +308,7 @@ def game_restart(tries):
             main()
 
         else:
-            print(f" You must type Y or N. You typed {(play_again)}")
+            print(f" You must type Y or N. You typed {(play_again)}.")
 
 
 def game_title():
@@ -335,23 +336,23 @@ def rules_of_game():
     print(
         """
         To be a hero today, your goal is simple.
-
-        Guess all letter that make up the word that will save a life.
-
+ 
+        Guess all letters correctly that make up the word that will save a life.
+ 
         If you guess wrong you will lose a life for every wrong guess.
-
+ 
         Be very mindful of your guesses, as too much wrong guesses
         will result in you reaching 0 lives.
-
+ 
         Once you have reached a total of 0 lives, you would have
-        then missed your oppurtunity to save a life,
+        then missed your opportunity to save the man,
         resulting in the man being hanged.
-
+ 
         But we have faith that you will be amazing
         and save many lives today. GODSPEED!
         """
     )
-    main_menu = input("To Return To Main Menu, Press Enter.\n")
+    main_menu = input("To Return To Game Menu, Press Enter.\n")
     print("\n")
     main()
 

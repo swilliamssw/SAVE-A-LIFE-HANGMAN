@@ -4,37 +4,37 @@ SAVE A LIFE HANGMAN is a fun and entertaining python terminal game, which is uti
 The game is aimed towards mainly develper IDE as a small break game. The game is also aimed to all ages, which have a interest in the programming space. 
 The game allows new and seniors to the coding space to enjoy the fun side of code, having the chance to play around a python based game.
  
-![Responsive Mockup](/assets/images/website-responsive.png)
+![Responsive Mockup](/assets/images/responsive-design.png)
  
 ## Features<hr>
  
 ### Existing Features
  
-- __Play Buttons__
- - Featured at the start of the game, the player is welcomed with the home screen, where the Trihub white logo is presented against the teal background.
- - Below the Trihub logo the user is presented with a play button in the center of the screen __GO!__ which links to the main game page where the  player can begin playing the quiz.
- - The other navigation links are the social pages, which are, Instagram, Discord, and Twitter which links to the different social platforms page opening up a new window when doing so.
- - The logo, play button and social links are all in a font that is congruent with the rest of the pages and a color that contrasts well with the background.
+ __GAME MENU__
+ - At the start if the game the player is greeted with the SAVE A LIFE HANGMAN logo,follow by a repersention of the hanged man. 
+ - Below all of that the player is presented with three options to choose from, which is 1 Play game, 2 choose difficutly and 3 read game rules. 
+ - The player is able to navigate freely through out the game menu to view all these options
  
-![GAME HOME PAGE](/assets/images/home-page.png)
+![GAME HOME PAGE](/assets/images/game-home-screen.png)
  
-- __Game Page__
- - The game page is displayed right after the home page and is identical in style and appearance as the home page.
+ __PLAY GAME__
+ - The play is able to play the game straight away by choosing option 1 which will provide the player with 7 lives, this is also known as the Normal mode. 
+ - upon the player choosing option 1 the game is instantly loaded up with the 7 lives and a random word to start guessing. 
  
-![Game Page](/assets/images/game.png)
+![Play Game](/assets/images/default-mode.png)
+
+ __DIFFICULTY SELECTION__
+ - The difficulty selction is displayed after choosing option 2, which will then display 4 options to choose from the for player. 
+ - 1 for Easy mode, 2 for Normal mode, 3 for Hard Mode and 4 for Expert mode. This gives the player more of a challenge in the game, allowing them to think more carefully before making a decision. 
+ - This Provide less lives the hard the game  is set with 10 for easy, 7 for normal, 5 for hard and lastly 3 for the experts. 
  
-- __Hud Section__
- - The hud section gives the user  information  which question they are on as well as how many questions they have left.
- - The questions tracker, all has a bar which fills as the player answers the questions, to be able to give the player a more visual representation of their progression through the game.
- - On the right hand side is the title score and score tracker, this section keeps a track of the amount of the answered questions that are correct.
+![Difficulty Selection](/assets/images/difficulty-selection.png)
  
-![Services](/assets/images/hud.png)
- 
-- __Questions Section__
- - The question section is displayed right above the four possible answers below.
- - This area changes when the player answers each time, and is congruent with both font and colour.
- 
- ![Question Section](/assets/images/questions.png)
+ __GAME RULES__
+ - Upon the player choosing option 3 the player is presented with the games rules, which explains to the player the basics of how the game works. 
+ - The player after reading the rules is then able to press enter to exit this seciton of the game and is relocated back to game menu, allowing them to choose other options of the two above it to play on. 
+
+ ![Game Rules](/assets/images/game-rules.png)
  
 - __Answer Section__
  - The answer section displays four labeled tabs which have each possible answers to the questions presented above it.
@@ -65,7 +65,7 @@ __End Game Page__
 ![Footer](/assets/images/endGame-page.png)
  
 ### Features Left to Implement
-- A High Scores page which enables players to keep track of their high scores when playing the game. <br>
+- Features i would like to implement later on would be to show all the  <br>
 This  will require them to log their name once finished the game and this will store both their score and name in a separate page which allows them to look back at,, at a later date to bring more of a competitive feel to the game.
  
 ## Testing<hr>
@@ -109,4 +109,8 @@ The live link from Heroku can be found here - https://save-a-life-hangman.heroku
 - The graphics for the title, game over and you win was taken from here. [Patorjk](https://patorjk.com/software/taag/#p=display&v=1&f=Small&t=SAVE%20A%20LIFE%0A%20%20HANGMAN)
 
 - This helped me understand and figure out synatax for python abit better for while loops. [W3SCHOOL](https://www.w3schools.com/python/python_while_loops.asp)
+
+- For the mock terminal to be able to deploy to a live site. [CodeInstitute](https://codeinstitute.net/)
+
+- Richard Wells for his good advice and guidence on breaking things down into manageable portions [RichardWells](https://github.com/D0nni387)
  
