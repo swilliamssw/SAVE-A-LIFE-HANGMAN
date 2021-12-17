@@ -95,10 +95,11 @@ This  will require them to log their name once finished the game and this will s
   - Navigated to deploy tab clicking on GitHub for deployment method.
   - App was connected to GitHub by locating repository and connnecting.
   - Scrolling down to Manual deploy, the branch was set to main, and deploy branch button was clicked.
+  - After waiting for app to be built a link will be provided by Heroku to access the app. 
+
+The live link from Heroku can be found here - https://save-a-life-hangman.herokuapp.com/
  
-The live link can be found here - https://save-a-life-hangman.herokuapp.com/
- 
-## Credits<hr>
+## Credits / References<hr>
  
 ### Content
 - To understand the basic structure and layout of the game, which help bring alot of clarity when understanding the logic. [YouTube](https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite)
@@ -106,4 +107,6 @@ The live link can be found here - https://save-a-life-hangman.herokuapp.com/
 - This was used to bring more understanding to some of the errors found when cleaning up the code. [Flake 8](https://www.flake8rules.com/rules)
  
 - The graphics for the title, game over and you win was taken from here. [Patorjk](https://patorjk.com/software/taag/#p=display&v=1&f=Small&t=SAVE%20A%20LIFE%0A%20%20HANGMAN)
+
+- This helped me understand and figure out synatax for python abit better for while loops. [W3SCHOOL](https://www.w3schools.com/python/python_while_loops.asp)
  

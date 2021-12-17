@@ -46,6 +46,7 @@ def difficulty_selection():
     print(" Choose 1 for Easy mode")
     print(" Choose 2 for Normal mode")
     print(" Choose 3 for Hard mode")
+    print(" Choose 4 for Expert mode")
 
     difficulty = False
     while not difficulty:
@@ -65,8 +66,13 @@ def difficulty_selection():
             tries = 5
             return tries
 
+        elif options == "4":
+            difficulty = True
+            tries = 3
+            return tries
+
         else:
-            print("\nPlease choose 1, 2 or 3 for your desired difficulty")
+            print("\nPlease choose 1, 2, 3 or 4 for your desired difficulty")
 
 
 def start_game(random_word, tries):
@@ -115,7 +121,7 @@ def start_game(random_word, tries):
                     game_over = True
         else:
             print("\n Sorry that is not a valid input, "
-                  "please guess a letter from A-Z.3\n")
+                  "please guess a letter from A-Z.\n")
             continue
 
         print(hangman_display(lives))
@@ -123,20 +129,20 @@ def start_game(random_word, tries):
         if lives > 0:
             print(f" Lives: {lives}\n")
             print(" Guess this word: " + " ".join(hidden_word) + "\n")
-            print(" Letters guessed: " + ", ".join(sorted(player_guess)))
+            print(" Letters guessed: " + ", ".join(sorted(guessed_letters)))
             print("\n")
 
     if game_over:
-        print("       CONGRATULATIONS YOU WIN!")
-        print("       YOU SAVED A LIFE TODAY!")
+        print(" CONGRATULATIONS YOU WIN!")
+        print(" YOU SAVED A LIFE TODAY!")
         winner()
 
     else:
-        print("                     OH NO!")
+        print("OH NO!\n")
         print("It's a very unfortante day,"
-              "you was unable to save the man this time")
+              " åyou was unable to save the man this time.")
         print("The correct word was " + random_word + "\n"
-              "\n Maybe next time you will try harder.")
+              "Maybe next time you will try harder.")
         hangman()
 
     game_restart(tries)
