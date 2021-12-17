@@ -7,12 +7,12 @@ The game allows new and seniors to the coding space to enjoy the fun side of cod
 ![Responsive Mockup](/assets/images/responsive-design.png)
  
 ## Logic Flow Chart
-__LOGIC FLOW CHART__
 - Below shows the basic logic structure for SAVE A LIFE HANGMAN. 
 - In order to batter visualise and plan the games cycle, this flow chart was disigned to give a logical point of view of the games functionality. 
 - You are able to see from start of the game to each options available for the player to pick right through the game being played and ending on either or ither route whether the player wins the game or loses. 
 
 ![Flow Chart](/assets/images/logic-flow-chart.png)
+
 ## Features<hr>
  
 ### Existing Features
@@ -24,11 +24,15 @@ __LOGIC FLOW CHART__
  
 ![GAME HOME PAGE](/assets/images/game-home-screen.png)
  
+ <hr>
+
  __PLAY GAME__
  - The play is able to play the game straight away by choosing option 1 which will provide the player with 7 lives, this is also known as the Normal mode. 
  - upon the player choosing option 1 the game is instantly loaded up with the 7 lives and a random word to start guessing. 
  
 ![Play Game](/assets/images/default-mode.png)
+ 
+ <hr>
 
  __DIFFICULTY SELECTION__
  - The difficulty selction is displayed after choosing option 2, which will then display 4 options to choose from the for player. 
@@ -36,13 +40,17 @@ __LOGIC FLOW CHART__
  - This Provide less lives the hard the game  is set with 10 for easy, 7 for normal, 5 for hard and lastly 3 for the experts. 
  
 ![Difficulty Selection](/assets/images/difficulty-selection.png)
- 
+  
+ <hr>
+
  __GAME RULES__
  - Upon the player choosing option 3 the player is presented with the games rules, which explains to the player the basics of how the game works. 
  - The player after reading the rules is then able to press enter to exit this seciton of the game and is relocated back to game menu, allowing them to choose other options of the two above it to play on. 
 
  ![Game Rules](/assets/images/game-rules.png)
- 
+  
+ <hr>
+
 __GAME DISPLAY__
  - Within the game the games display, the player is presented with the hangman graphics which changes in accordance of the player guessing incorrect answers. 
  - The state is also dependeant on the difficulty the player has chosen also. 
@@ -53,30 +61,40 @@ __GAME DISPLAY__
 
  ![Game Display](/assets/images/display.png)
  ![Game Display](/assets/images/correct-answer.png)
- 
+  
+ <hr>
+
 __CORRECT ANSWER__
  - On a successful correct guess given by the player the following message is presented, "Great guess! _ is the in the word.". 
  - This indicates to the player they have guessed correctly one of the letters correctly. 
  - In the example below you can see that the player has guessed "A", now if a word does contain one or more this is automatically populted for the player, allowing them to complete the word and gain more clues to what the word may be.
 
 ![Correct Answer](/assets/images/correct-answer.png)
- 
+  
+ <hr>
+
 __INCORRECT ANSWER__
 - When a player make a incorrect guess, the following message is displayed to notify them of their incorrect guess, "_ is not correct.
 - This then results in the player losing a life and the word being add to the guessed list.
  
 ![Incorrect Answer](/assets/images/game-easy-mode.png)
- 
+  
+ <hr>
+
 __GAME OVER__
 - Once the player has ran out of lives the player will be presented with a Game OVER graphic which will have the following message above, "OH NO! It's a very unfortante day, you was unable to save the man this time. The correct word was ______. "Better luck next time.". 
 
 ![Game Over](/assets/images/game-over.png)
+ 
+ <hr>
 
 __YOU WIN__
 - If the player were to successfully guess the word correctly before running out of lives, the player would be presented with a You Win! Graphic, which will indicate to the player that they have successfully aguessed the word and won the game. 
 - The follwoing message would be displayed to the player, "CONGRATULATIONS YOU WIN! YOU SAVED A LIFE TODAY!".
 
 ![You Win](/assets/images/you-win.png)
+ 
+ <hr>
 
 __PLAY AGAIN__
 - Once the player has either recieved either the game over or you win message the player will be presented with a play again option. 
@@ -84,6 +102,8 @@ __PLAY AGAIN__
 
 ![Play Again](/assets/images/play-again.png)
 ![Play Again-No](/assets/images/play-again-no.png)
+ 
+ <hr>
 
 __INVALID INPUT__
 - If the player were to input a value other that a-z the player would be presented with a message indicating them to guess useing any letter form a-z. 
@@ -92,7 +112,9 @@ __INVALID INPUT__
 
 ![Invalid Input](/assets/images/invalid-input.png)
 ![Invalid Input](/assets/images/invalid-input-number.png)
- 
+  
+ <hr>
+
 ### Features Left to Implement
 - Features that would be implemented at a later date, would be a player name tracking and score keeping system.
 - This would allow the players to become more competitive and add more of a challenge for the game itself. 
@@ -135,6 +157,8 @@ No automated testing has been used for this project, all testing has been conduc
 
 ## Unfixed Bugs
 - There are currently no unfixed bugs, on this game.
+ 
+ <hr>
 
 ### Validator Testing
 - PEP8  
@@ -143,6 +167,8 @@ No automated testing has been used for this project, all testing has been conduc
 [PEP8](http://pep8online.com/)
  
  ![PEP8 Validation](/assets/images/pep8-validation.png)
+ 
+ <hr>
 
 ## Deployment
 - The site was deployed to Heroku, utilising the Code institute mock terminal.
@@ -159,7 +185,8 @@ No automated testing has been used for this project, all testing has been conduc
 
 The live link from Heroku can be found here - https://save-a-life-hangman.herokuapp.com/
 
- 
+ <hr>
+
 ## Credits / References<hr>
  
 ### Content
